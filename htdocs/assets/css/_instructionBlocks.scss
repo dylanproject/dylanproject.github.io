@@ -1,0 +1,38 @@
+div.blocks-container {
+  display: flex;
+  justify-content: flex-end;
+
+  article.container.guide {
+    width: 100%;
+    margin: 0;
+    margin-left: 2rem;
+
+    .post__container {
+      max-width: inherit;
+
+      .block {
+        max-width: inherit;
+        width: 100%;
+      }
+
+      .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  div.catalogue-container {
+
+  }
+}
+
+@media only screen and (max-width: 81em){
+  article.container.guide {
+    .post__container {
+      .block {
+
+      }
+    }
+  }
+}

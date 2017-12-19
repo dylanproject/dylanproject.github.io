@@ -1,0 +1,14 @@
+{% set title = "Hudl Quick Start Guide" %}
+{% extends "_layout" %}
+
+{% block content %}
+
+  {% include '_header.html' %}
+  <main class="blog category-home">
+    {% include '_heroPanel.html' %}
+    {% include '_guideListPanel.html' %}
+    {% include '_calloutPanel.html' %}
+  </main>
+  {% include '_footer.html' %}
+
+{% endblock %}

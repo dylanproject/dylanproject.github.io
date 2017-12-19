@@ -1,0 +1,43 @@
+<article class="container guide">
+  <div class="post__container">
+
+    {% for block in entry.instructionBlock %}
+
+    {% set helperImage = '' %}
+    {% for asset in block.helperImage %}
+      {% set helperImage = asset.url %}
+    {% endfor %}
+
+    {% set videoFile = '' %}
+    {% for asset in block.videoFile %}
+      {% set videoFile = asset.url %}
+    {% endfor %}
+
+    {% if loop.index is not divisibleby(2) %}
+    <div class="block block--two-column v-align-top copy-first" id="{{block.header|replace({' ': '-', '.': '', '\'': ''})}}">
+    {% else %}
+    <div class="block block--two-column" id="{{block.header|replace({' ': '-', '.': '', '\'': ''})}}">
+    {% endif %}
+
+      <div class="block--two-column__column block--copy image">
+          {% if helperImage != '' %}
+          <div class="img-box no-border no-bg" style="padding-top: 63.414634146341%;">
+            <img src="{{helperImage}}" class="loaded" alt="{{block.header}}" style="object-fit:contain;">
+          </div>
+          {% elseif videoFile != '' %}
+          <video controls="" autoplay="" muted="" src="{{videoFile}}"></video>
+          {% endif %}
+      </div>
+      <div class="block--two-column__column block--copy">
+        <h3>{{block.header}}</h3>
+
+        {{block.details}}
+
+        <p>{{block.links|striptags('<br><a>')|raw}}</p>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+</article>

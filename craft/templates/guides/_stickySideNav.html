@@ -1,0 +1,39 @@
+<div class="catalogue-container">
+   <div class="float-table">
+     <h1 class="table-name"><a href="/index.php" class="table-name">Hudl's Quick Start Guides</a></h1>
+
+     {% for guideTemp in craft.entries.section('guides').type('quickGuide').order('order') %}
+       <!-- Guide Link -->
+       {% if guideTemp.url == entry.url %}
+       <div class="active" id='menu-center'>
+       {% else %}
+       <div class="" id='menu-center'>
+       {% endif %}
+        <div>
+          <a href="{{guideTemp.url}}">{{guideTemp.title}}</a>
+        </div>
+        {% if guideTemp.url == entry.url %}
+        <ul class='markers'>
+          {% for blockTemp in guideTemp.instructionBlock %}
+          <li class="markers__label"><a href="#{{blockTemp.header|replace({' ': '-', '.': '', '\'': ''})}}" class="nav-scroll-to">{{blockTemp.header}}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+       </div>
+     {% endfor %}
+
+  </div>
+
+  <div class="collapsed-table">
+    <div class='menu-icon'></div>
+    <ul class='menu-sub-markers'>
+      {% for guideTemp in craft.entries.section('guides').type('quickGuide').order('order') %}
+        {% if guideTemp.url == entry.url %}
+          {% for blockTemp in guideTemp.instructionBlock %}
+          <li class='sub-marker'><a href="#{{blockTemp.header|replace({' ': '-', '.': '', '\'': ''})}}" class=""></a></li>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

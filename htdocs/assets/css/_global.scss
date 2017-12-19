@@ -1,0 +1,52 @@
+/**
+ * Responsive type size equation:
+ * calc(size-at-400px + ((100vw - 400px) / (1590 / (size-at-1900px - size-at-400px))))
+ */
+
+// brand colors
+$brand-orange: #ff6300;
+$brand-electric: #009ce3;
+$brand-ink: #232a31;
+$brand-evening: #38434f;
+$brand-slate: #4e5d6c;
+
+$LE-Bg-Level0: rgba(255,255,255,1.0);
+$LE-Bg-Level0-Accent: rgba(237,240,242,1.0);
+$LE-Bg-Level1: rgba(249,250,251,1.0);
+$LE-Bg-Level1-Accent: rgba(228,231,235,1.0);
+$LE-Bg-Level2: rgba(242,245,247,1.0);
+$LE-Bg-Level2-Accent: rgba(220,225,230,1.0);
+$LE-Bg-Level3: rgba(235,239,242,1.0);
+$LE-Bg-Level3-Accent: rgba(211,216,222,1.0);
+
+$DE-Bg-Level0: rgba(16, 20, 23, 1.0);
+$DE-Bg-Level0-Accent: rgba(35, 42, 49, 1.0);
+$DE-Bg-Level1: rgba(25, 31, 36, 1.0);
+$DE-Bg-Level1-Accent: rgba(44, 53, 62, 1.0);
+$DE-Bg-Level2: rgba(35, 42, 49, 1.0);
+$DE-Bg-Level2-Accent: rgba(49, 59, 69, 1.0);
+$DE-Bg-Level3: rgba(53, 63, 74, 1.0);
+$DE-Bg-Level3-Accent: rgba(69, 82, 94, 1.0);
+
+$LE-Content-Contrast: rgba(19, 41, 63, 1.0);
+$LE-Content-Default: rgba(19, 41, 63, 0.80);
+$LE-Content-Subtle: rgba(19, 41, 63, 0.65);
+$LE-Content-ContentNonessential: rgba(19, 41, 63, 0.4);
+
+$DE-Content-Contrast: rgba(230, 242, 255, 1.0);
+$DE-Content-Default: rgba(230, 242, 255, 0.80);
+$DE-Content-Subtle: rgba(230, 242, 255, 0.65);
+$DE-Content-ContentNonessential: rgba(230, 242, 255, 0.40);
+
+// z-index level
+$z-overlay:1000;
+$z-top:750;
+$z-mid:500;
+$z-bottom:250;
+$z-back:0;
+
+
+body {
+
+
+}

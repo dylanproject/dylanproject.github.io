@@ -1,0 +1,78 @@
+<div class="container" id="lowerLimit">
+  {% set array = craft.entries.section('guides').type('quickGuide').order('order') %}
+
+  <!-- if on first article adjust alignment -->
+  {% if entry.url == array[0].url %}
+  <section class="next-prev" style="justify-content:flex-end;">
+  {% else %}
+  <section class="next-prev">
+  {% endif %}
+
+    <!-- get the current article order number in the articles array -->
+    {% set currentPosition = '' %}
+    {% for article in array %}
+      {% if article.url == entry.url  %}
+        {% set currentPosition = loop.index - 1 %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- if user is not on first guide -->
+    {% if entry.url != array[0].url %}
+      <div>
+        <h6 class="type--typewriter">Previous Article</h6>
+        <h4><a href="{{array[currentPosition - 1].url}}">{{array[currentPosition - 1].title}}</a></h4>
+        <p class="body-size-small">{{array[currentPosition - 1].description}}</p>
+      </div>
+    {% endif %}
+
+    <!-- if user is not on last guide -->
+    {% if entry.url != array[array|length - 1].url %}
+      <div>
+        <h6 class="type--typewriter">Next Article</h6>
+        <h4><a href="{{array[currentPosition + 1].url}}">{{array[currentPosition + 1].title}}</a></h4>
+        <p class="body-size-small">{{array[currentPosition + 1].description}}</p>
+      </div>
+    {% endif %}
+
+  </section>
+</div>
+
+<div class="community">
+  <div class="community__divider-1"></div>
+  <div class="community__divider-2"></div>
+  <div class="community__content">
+    <h2 class='content-header'>Still can't find what you're looking for?</h2>
+    <div class='content-links'>
+      <div class="threeup-block">
+        <div>
+          <span class="category-icon"><img src="https://static.hudl.com/craft/icons/icon-forum.svg?mtime=20170630100439" alt="Monitor Icon"></span>
+          <h4 class="category-title"><a href="/forum">Forum</a></h4>
+          <p>Exchange tips and tricks with other users.</p>
+        </div>
+        <a class="btn__blue--ghost small round" href="/forum">Join the community</a>
+      </div>
+      <div class="threeup-block">
+        <div>
+          <span class="category-icon"><img src="https://static.hudl.com/craft/icons/icon-chats.svg?mtime=20171016131142" alt="Chats Icon"></span>
+          <h4 class="category-title"><a href="/get-trained">One-on-One Training</a></h4>
+          <p>Coaches — whether you’re a new user or a Hudl pro, let us help you get started this season.</p>
+        </div>
+        <a class="btn__blue--ghost small round" href="/get-trained">Schedule a chat</a>
+      </div>
+      <div class="threeup-block">
+        <div>
+          <span class="category-icon"><img src="https://static.hudl.com/craft/icons/icon-classes.svg?mtime=20171016131143" alt="Classes Icon"></span>
+          <h4 class="category-title"><a href="/classes">Online Classes</a></h4>
+          <p>Sign up to dive deeper into Hudl.</p>
+        </div>
+        <a class="btn__blue--ghost small round" href="/classes">Claim your spot</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="angles">
+  <div class="angle angles__1" style=""></div>
+  <div class="angle angles__2" style=""></div>
+  <div class="angle angles__3" style=""></div>
+</section>

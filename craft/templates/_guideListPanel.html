@@ -1,0 +1,52 @@
+<section class="category__landing container">
+
+  {% for entry in craft.entries.section('guides').type('quickGuide').order('order') %}
+
+  {% if loop.index <= 2 %}
+  <div class='guide featured'>
+    <a href="{{entry.url}}" class="category__article featured">
+  {% else %}
+  <div class='guide'>
+    <a href="{{entry.url}}" class="category__article">
+  {% endif %}
+
+      {# To get to the image, you need to fetch it. #}
+      {% set previewImage = '' %}
+      {% for asset in entry.previewImage %}
+        {% set previewImage = asset.url %}
+      {% endfor %}
+
+      <div class="img-box landing no-bg">
+        <img style="object-position: bottom left" alt="{{entry.title}}" src="{{previewImage}}" class="loaded">
+      </div>
+      <div class="post__info">
+        <h4>{{entry.title}}</h4>
+        <p class="post__excerpt">{{entry.description}}</p>
+      </div>
+    </a>
+
+    <div class="guide__subLinks" >
+      {% for blockTemp in entry.instructionBlock %}
+      <a href="{{entry.url}}#{{blockTemp.header|replace({' ': '-', '.': '', '\'': ''})}}">{{blockTemp.header}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+
+</section>
+
+<script type="text/javascript">
+
+  $(function() {
+    // display sub nav for specific guide
+    $(".guide").hover(
+      function() {
+        $(this).find(".guide__subLinks").css("display", "flex");
+      }, function() {
+        $(this).find(".guide__subLinks").css("display", "none");
+      }
+    );
+
+  });
+
+</script>
