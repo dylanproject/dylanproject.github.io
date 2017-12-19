@@ -16,10 +16,10 @@ return array(
 	'database' => 'craft',
 
 	// The database username to connect with.
-	'user' => '858123969b39',
+	'user' => '99afcda396ad',
 
 	// The database password to connect with.
-	'password' => '2893498bccfe581d',
+	'password' => 'ac7e55ec909c6638',
 
 	// The prefix to use when naming tables. This can be no more than 5 characters.
 	'tablePrefix' => 'craft',
